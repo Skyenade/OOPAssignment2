@@ -79,6 +79,14 @@ public class Driver {
 		return copyarr;	
 	}
 	
+	public static Object[] copyInventory2(Object[] inv) {
+		Object[] copyarr = new Object[inv.length];
+		for (int i = 0; i<inv.length;i++) {
+			copyarr[i] = new Object(inv[i]);			
+		}
+		return copyarr;		
+	}
+	
 	
 
 }

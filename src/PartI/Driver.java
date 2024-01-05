@@ -55,10 +55,13 @@ public class Driver {
 		
 		displayInv(mixedArray1);		
 	
+		System.out.println("Mixed array 1:");
 		findLeastAndMostExpensiveAircraft(mixedArray1);
-		
+
+		System.out.println("Mixed array 2:");
 		findLeastAndMostExpensiveAircraft(mixedArray2);
 		
+		System.out.println("Mixed array 3:");
 		findLeastAndMostExpensiveAircraft(mixedArray3);
 		
 		System.out.println(wt2.equals(wt3));
@@ -97,9 +100,7 @@ public class Driver {
 	                expensive = currentPrice;
 	                expensiveObject = obj;
 	            }
-	        } else if (obj != null) {
-	            System.out.println("Found non-Aircraft object: " + obj);
-	        }
+	        } 
 	    }
 
 	    if (cheapObject != null) {

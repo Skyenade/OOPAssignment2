@@ -5,10 +5,11 @@ import Pack2.Train;
 public class Metro extends Train{
 	
 	protected int totalNumberOfStops;
-	protected long serialNumber;
-	protected static long serialNumbercounter = 25000;
+	private long serialNumber;
+	private static long serialNumbercounter = 25000;
 	
 	public Metro() {
+		System.out.println("Metro default");
 		totalNumberOfStops = 0;
 		serialNumber = serialNumbercounter;
 		serialNumbercounter++;
@@ -16,12 +17,14 @@ public class Metro extends Train{
 
 	public Metro(int nw, double ms, int nv, String nss, String nds, int tns) {
 		super(nw, ms, nv, nss, nds);
+		System.out.println("Metro parameter");
 		totalNumberOfStops = tns;
 		serialNumber = serialNumbercounter;
 		serialNumbercounter++;
 	}
 	
 	public Metro(Metro mt) {
+		System.out.println("Metro copy");
 		totalNumberOfStops = mt.totalNumberOfStops;
 		setNumberOfWheels(mt.getNumberOfWheels());
 		setMaximumSpeed(mt.getMaximumSpeed());
@@ -39,20 +42,32 @@ public class Metro extends Train{
 	public void setTotalNumberOfStops(int tns) {
 		totalNumberOfStops = tns;
 	}
+	
+	public void getNextSerialNumber() {
+		System.out.println("comes from Metro");
+		System.out.println("The next serial number is " + serialNumbercounter);
+	}
+	
+	public boolean equals(Metro mt) {
+		if (mt == null || mt.getClass() != this.getClass()) {
+	        return false;
+		}
+	    if (mt == this) {
+	        return true;
+	    }
+	    return false;
+	}
 
 	@Override
 	public String toString() {
-		return "Metro totalNumberOfStops=" + totalNumberOfStops +
-				", serialNumber=" + serialNumber+
-				", NumberOfVehicles="+ getNumberOfVehicles() +
-				", NameOfTheStartingStation=" + getNameOfTheStartingStation()+
-				", NameOfDestinationStation=" + getNameOfDestinationStation() +
-				", NumberOfWheels=" + getNumberOfWheels() +
-				", MaximumSpeed="+ getMaximumSpeed();
+		return "This Metro - serial# " + serialNumber + 
+				" - has " + getNumberOfWheels() + 
+				" wheels, has a maximum speed of " + getMaximumSpeed() +
+				" km/h. It has " + getNumberOfVehicles() +
+				" vehicles, its starting and destination stations are " + getNameOfTheStartingStation()+
+				" and " + getNameOfDestinationStation() +
+				". The number of stops is " + totalNumberOfStops +
+				".";
 	}
-
 	
-	
-	
-
 }

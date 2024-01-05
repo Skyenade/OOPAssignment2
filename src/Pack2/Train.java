@@ -7,10 +7,11 @@ public class Train extends WheeledTransportation{
 	protected int numberOfVehicles;
 	protected String NameOfTheStartingStation;
 	protected String NameOfDestinationStation;
-	protected long serialNumber;
-	protected static long serialNumbercounter = 10000;
+	private long serialNumber;
+	private static long serialNumbercounter = 10000;
 	
 	public Train() {
+		System.out.println("Train default");
 		numberOfVehicles = 0;
 		NameOfTheStartingStation = null;
 		NameOfDestinationStation = null;
@@ -20,6 +21,7 @@ public class Train extends WheeledTransportation{
 
 	public Train(int nw, double ms,int nv, String nss, String nds) {
 		super(nw, ms);
+		System.out.println("Train parameter");
 		numberOfVehicles = nv;
 		NameOfTheStartingStation = nss;
 		NameOfDestinationStation = nds;
@@ -28,6 +30,7 @@ public class Train extends WheeledTransportation{
 	}
 
 	public Train(Train tn) {
+		System.out.println("Train copy");
 		numberOfVehicles = tn.numberOfVehicles;
 		NameOfTheStartingStation = tn.NameOfTheStartingStation;
 		NameOfDestinationStation = tn.NameOfDestinationStation;
@@ -60,15 +63,29 @@ public class Train extends WheeledTransportation{
 	public void setNameOfDestinationStation(String nds) {
 		NameOfDestinationStation = nds;
 	}
+	
+	public void getNextSerialNumber() {
+		System.out.println("comes from Train");
+		System.out.println("The next serial number is " + serialNumbercounter);
+	}
+	
+	public boolean equals(Train tn) {
+		if (tn == null || tn.getClass() != this.getClass()) {
+	        return false;
+		}
+	    if (tn == this) {
+	        return true;
+	    }
+	    return false;
+	}
 
 	@Override
 	public String toString() {
-		return "Train info: numberOfVehicles = " + numberOfVehicles +
-				", Name Of The Starting Station = " + NameOfTheStartingStation +
-				", Name Of Destination Station = " + NameOfDestinationStation +
-				", serial Number = " + serialNumber +
-				", Number of Wheels = " + getNumberOfWheels()+
-				", maximum speed = " + getMaximumSpeed();
+		return "This Train - serial# " + serialNumber +
+				" - has " + getNumberOfWheels() +
+				" wheels, has a maximum speed of " + getMaximumSpeed() + " km/h. It has " +
+				numberOfVehicles + " vehicles and its starting and destination stations are " +
+				NameOfTheStartingStation + " and " + NameOfDestinationStation;
 	}
 	
 

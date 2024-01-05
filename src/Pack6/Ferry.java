@@ -8,6 +8,7 @@ public class Ferry {
 	private static long serialNumbercounter = 70000;
 	
 	public Ferry() {
+		System.out.println("Ferry default");
 		maxSpeed = 0.0;
 		maxLoad = 0.0;
 		serialNumber = serialNumbercounter;
@@ -15,6 +16,7 @@ public class Ferry {
 	}
 
 	public Ferry(double mspeed, double mload) {
+		System.out.println("Ferry parameter");
 		maxSpeed = mspeed;
 		maxLoad = mload;
 		serialNumber = serialNumbercounter;
@@ -22,6 +24,7 @@ public class Ferry {
 	}
 	
 	public Ferry(Ferry f) {
+		System.out.println("Ferry copy");
 		maxSpeed = f.maxSpeed;
 		maxLoad = f.maxLoad;
 		serialNumber = serialNumbercounter;
@@ -43,6 +46,21 @@ public class Ferry {
 	public void setMaxLoad(double mload) {
 		maxLoad = mload;
 	}
+	
+	public void getNextSerialNumber() {
+		System.out.println("comes from Ferry");
+		System.out.println("The next serial number is " + serialNumbercounter);
+	}
+	
+	public boolean equals(Ferry f) {
+		if (f == null || f.getClass() != this.getClass()) {
+	        return false;
+		}
+	    if (f == this) {
+	        return true;
+	    }
+	    return false;
+	}
 
 	@Override
 	public String toString() {
@@ -50,13 +68,5 @@ public class Ferry {
 				", maxLoad = " + maxLoad +
 				", serialNumber = " + serialNumber;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-
+		
 }

@@ -8,6 +8,7 @@ public class WheeledTransportation {
 	protected static long serialNumbercounter = 10;
 	
 	public WheeledTransportation() {
+		System.out.println("WT default");
 		numberOfWheels = 0;
 		maximumSpeed = 0;
 		serialNumber = serialNumbercounter;
@@ -15,6 +16,7 @@ public class WheeledTransportation {
 	}
 
 	public WheeledTransportation(int nw, double ms) {
+		System.out.println("WT parameter");
 		numberOfWheels = nw;
 		maximumSpeed = ms;
 		serialNumber = serialNumbercounter;
@@ -22,6 +24,7 @@ public class WheeledTransportation {
 	}
 	
 	public WheeledTransportation(WheeledTransportation wt) {
+		System.out.println("WT copy");
 		numberOfWheels = wt.numberOfWheels;
 		maximumSpeed = wt.maximumSpeed;
 		serialNumber = serialNumbercounter;
@@ -43,14 +46,29 @@ public class WheeledTransportation {
 	public void setMaximumSpeed(double maximumSpeed) {
 		this.maximumSpeed = maximumSpeed;
 	}
-
-	@Override
-	public String toString() {
-		return "Wheeled Transportation numberOfWheels: " +numberOfWheels +
-				", maximumSpeed: " + maximumSpeed
-				+ ", serialNumber: " + serialNumber;
+	
+	public void getNextSerialNumber() {
+		System.out.println("comes from WT");
+		System.out.println("The next serial number is " + serialNumbercounter);
 	}
 	
 	
+	public boolean equals(WheeledTransportation wt) {
+		if (wt == null || wt.getClass() != this.getClass()) {
+	        return false;
+		}
+	    if (wt == this) {
+	        return true;
+	    }
+	    return true;
+	}
+
+	@Override
+	public String toString() {
+		return "This Wheeled Transportation - serial# " + serialNumber +
+				" - has " + numberOfWheels +
+				" wheels, has a maximum speed of " + maximumSpeed + " km/h.";
+	}
+		
 
 }

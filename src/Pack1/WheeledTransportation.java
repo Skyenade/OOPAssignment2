@@ -30,7 +30,7 @@ public class WheeledTransportation {
 		serialNumber = serialNumbercounter;
 		serialNumbercounter++;
 	}
-
+	
 	public int getNumberOfWheels() {
 		return numberOfWheels;
 	}

@@ -67,17 +67,17 @@ public class Driver {
 		}
 	}	
 	
-	public static Object[] copyTheObjects(Object[] inv) {
-		Object[] copyarr = new Object[inv.length];
-		for (int i = 0; i<inv.length;i++) {
-			if (inv[i] instanceof Object) {
-                copyarr[i] = ((Object) inv[i]).copy();
-            } else {
-                copyarr[i] = null;
-            }			
-		}
-		return copyarr;	
-	}
+//	public static Object[] copyTheObjects(Object[] inv) {
+//		Object[] copyarr = new Object[inv.length];
+//		for (int i = 0; i<inv.length;i++) {
+//			if (inv[i] instanceof Object) {
+//                copyarr[i] = ((Object) inv[i]).copy();
+//            } else {
+//                copyarr[i] = null;
+//            }			
+//		}
+//		return copyarr;	
+//	}
 	
 	public static Object[] copyInventory2(Object[] inv) {
 		Object[] copyarr = new Object[inv.length];
